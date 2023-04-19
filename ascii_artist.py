@@ -7,7 +7,7 @@ class AsciiArtist:
         self.chars = ' _.,-=+:;cba!?0123456789$W#@Ñ'
         self.chars = self.chars[::-1]
 
-    def _one_to_one_from_file(self, filename:str) -> list[str]:
+    def _one_to_one_from_file(self, filename:str) -> list[list[str]]:
         try:
             img = Image.open(filename)
             img = ImageOps.grayscale(img)
@@ -16,7 +16,7 @@ class AsciiArtist:
             return
         return self._one_to_one_from_image(img)
 
-    def _one_to_one_from_image(self, image=Image) -> list[str]:
+    def _one_to_one_from_image(self, image=Image) -> list[list[str]]:
         width, height = image.size
         pixels = image.load()
         for i in range(height):
@@ -27,7 +27,7 @@ class AsciiArtist:
             self.canvas.append(row)
         return self.canvas
 
-    def one_to_one(self, filename=None, image=None):
+    def one_to_one(self, filename=None, image=None) -> list[list[str]]:
         if bool(filename) == bool(image):
             raise ValueError('Must provide exactly one of filename or pixels')
         self.canvas = []
@@ -35,7 +35,7 @@ class AsciiArtist:
             return self._one_to_one_from_file(filename)
         return self._one_to_one_from_image(image)
 
-    def resized(self, filename:str, width:int=None, height:int=None) -> list[str]:
+    def resized(self, filename:str, width:int=None, height:int=None) -> list[list[str]]:
         if bool(width) != bool(height):
             raise ValueError('Must provide both or neither of width and height')
         try:
