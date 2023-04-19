@@ -1,0 +1,10 @@
+user can choose between two generation options: 
+ascii
+Lego
+
+user can choose between live mode and image file
+
+if image file, 
+user can choose between two options:
+consistent scaling
+manual width, height
