@@ -47,33 +47,3 @@ class AsciiArtist:
             print('File not found')
             return
         return self.one_to_one(image=img)
-
-x = AsciiArtist()
-# taylor = x.one_to_one(filename='taylor.png')
-# with open('taylor.txt', 'w') as f:
-#     for row in taylor:
-#         f.write(''.join(row) + '\n')
-# lowres = x.one_to_one(filename='lowres.png')
-# with open('lowres.txt', 'w') as f:
-#     for row in lowres:
-#         f.write(''.join(row) + '\n')
-# cookie = x.one_to_one(filename='cookie.png')
-# with open('cookie.txt', 'w') as f:
-#     for row in cookie:
-#         f.write(''.join(row) + '\n')
-taylor = x.resized(filename='taylor.png')
-with open('taylor.txt', 'w') as f:
-    for row in taylor:
-        f.write(''.join(row) + '\n')
-cookie = x.resized(filename='cookie.png')
-with open('cookie.txt', 'w') as f:
-    for row in cookie:
-        f.write(''.join(row) + '\n')
-panda = x.resized(filename='panda.png')
-with open('panda.txt', 'w') as f:
-    for row in panda:
-        f.write(''.join(row) + '\n')
-blahaj = x.resized(filename='blahaj.png')
-with open('blahaj.txt', 'w') as f:
-    for row in blahaj:
-        f.write(''.join(row) + '\n')
