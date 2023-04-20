@@ -41,7 +41,7 @@ class AsciiArtist:
         try:
             img = Image.open(filename)
             img = ImageOps.grayscale(img)
-            w = int((width or 100) * (14/6))
+            w = int((width or 100) * (2))
             img = img.resize((w, height or 100))
         except:
             print('File not found')
