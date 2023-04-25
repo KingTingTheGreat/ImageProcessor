@@ -35,13 +35,13 @@ class AsciiArtist:
             return self._one_to_one_from_file(filename)
         return self._one_to_one_from_image(image)
 
-    def resized(self, filename:str, width:int=None, height:int=None) -> list[list[str]]:
+    def resized(self, filename:str, scale:float=2.35, width:int=None, height:int=None) -> list[list[str]]:
         if bool(width) != bool(height):
             raise ValueError('Must provide both or neither of width and height')
         try:
             img = Image.open(filename)
             img = ImageOps.grayscale(img)
-            w = int((width or 100) * (2.35))
+            w = int((width or 100) * (scale))
             img = img.resize((w, height or 100))
         except:
             print('File not found')
